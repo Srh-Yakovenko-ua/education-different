@@ -178,57 +178,76 @@
 // Task 5
 // Устали? У нас есть две функции. Одна even, вторая odd. Напишите функцию t5, которая получает из input.i-5 число, проверяет его на четность и запускает even если число четное и odd если нет.
 
-const out5 = document.querySelector('.out-5');
-
-function odd() {
-    out5.textContent = 'odd';
-}
-
-function even() {
-    out5.textContent = 'even';
-}
-
-function t5() {
-
-}
-
-document.querySelector('.b-5').addEventListener('click', t5);
+// const out1 = document.querySelector('.out-1');
+//
+// function odd() {
+//     out1.textContent = 'odd';
+// }
+//
+// function even() {
+//     out1.textContent = 'even';
+// }
+//
+// function t5() {
+//     let inp = document.querySelector('.inp').value;
+//     if (inp % 2 === 0) {
+//         even();
+//     } else {
+//         odd();
+//     }
+// }
+//
+// document.querySelector('.btn').addEventListener('click', t5);
 
 
 // Task 6
 // Давайте усложним задачу. У нас есть функцию getRandomInt2 которая использует переменные min, max выводит в out-2 случайное целое число. Напишите функцию t6, которая запускает getRandomInt2, после чего, получает из .out-2 сгенерированное число и определяет четное оно или нет. Если четное, запускает функцию even, если нет - odd. Обратите внимание, как написаны функции even, odd.
 
-const out6 = document.querySelector('.out-6');
-
-function t6() {
-    function odd() {
-        out6.textContent = 'odd';
-    }
-
-    function even() {
-        out6.textContent = 'even';
-    }
-
-    min = 10000;
-    max = 10099;
-    // тут запускаете getRandomInt2
-
-}
-
-document.querySelector('.b-6').addEventListener('click', t6);
+// const out6 = document.querySelector('.out-1');
+//
+// function t6() {
+//     function odd() {
+//         out6.textContent = 'odd';
+//     }
+//
+//     function even() {
+//         out6.textContent = 'even';
+//     }
+//
+//     min = 10000;
+//     max = 10099;
+//
+//     function getRandomInt2() {
+//         let rand = Math.floor(min + Math.random() * (max + 1 - min));
+//         // out6.innerHTML = rand;
+//         if (rand % 2 == 0) {
+//             return even();
+//         }
+//         return odd();
+//     }
+//
+//     getRandomInt2();
+// }
+//
+// document.querySelector('.btn').addEventListener('click', t6);
 
 
 // Task 7
 // Дана переменная z7 равная 91. При клике по кнопке b-7 запускается функция t7, которая увеличивает переменную z7 на единицу и выводит в out-7. Добавьте условие, что если z7 равна 100, то дальше мы не увеличиваем значение z7.
 
-const out7 = document.querySelector('.out-7');
-let z7 = 91;
-
-function t7() {
-
-}
-
-document.querySelector('.b-7').addEventListener('click', t7);
+// const out7 = document.querySelector('.out-1');
+// let z7 = 91;
+//
+// function t7() {
+//     z7++;
+//     if (z7 >= 101) {
+//        return false;
+//     }
+//     out7.innerHTML += z7 + ' ';
+//
+// }
+//
+// document.querySelector('.btn').addEventListener('click', t7);
 
 
 // Task 8

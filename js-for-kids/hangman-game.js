@@ -22,18 +22,25 @@ for (let i = 0; i < randomWord.length; i++) {
 let remainingLetters = randomWord.length;
 
 //делаем игровой цикл
+// Добавлвяю количество попыток
+let amountAttempts = 8;
 
-while (remainingLetters > 0) {
+while (remainingLetters > 0 && amountAttempts > 0) {
     // отображение состояния игры
     alert(answerArray.join(' '));
     // обработка введенного ответа
-    let guess = prompt('Угадайте букву или нажмите ОТМЕНА для выхода из игры.').toLocaleLowerCase();
+    let guess = prompt('Угадайте букву или нажмите ОТМЕНА для выхода из игры.');
+    guess = guess.toLocaleLowerCase();  // фикс в нижний регистр
+
     if (guess === null) {
         alert('Вы закрыли игру');
         break;
     } else if (guess.length !== 1) {
         alert('Пожалуйста, введите только одну букву');
     } else {
+        // отнимаем кол-во попыток
+        amountAttempts--;
+
         // обвновляем состояние игры
         for (let j = 0; j < randomWord.length; j++) {
             if (randomWord[j] === guess) {
@@ -42,9 +49,18 @@ while (remainingLetters > 0) {
             }
         }
     }
+
+    // конец игровго цикла
 }
+
 
 // Конец игры !!!
 alert(answerArray.join(' '));
-alert('Отлично! Было загадано слово ' + randomWord);
+// Проверка на попытки
+if (amountAttempts > 0) {
+    alert(" Отлично ! Ответ был " + randomWord);
+} else {
+    alert(" Не угадали , Ответ был " + randomWord);
+}
+
 

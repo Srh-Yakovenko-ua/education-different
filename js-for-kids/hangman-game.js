@@ -4,10 +4,13 @@ let words = [
     'макака',
     'прекрасный',
     'оладушек',
+    'жираф',
+    'прокрастинация',
+    'виселица',
 ];
 
 let randomWord = words[Math.floor(Math.random() * words.length)];
-
+console.log(randomWord)
 // Создание итогового массива
 
 let answerArray = [];

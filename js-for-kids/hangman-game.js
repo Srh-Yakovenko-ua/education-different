@@ -43,7 +43,7 @@ while (remainingLetters > 0 && amountAttempts > 0) {
 
         // обвновляем состояние игры
         for (let j = 0; j < randomWord.length; j++) {
-            if (randomWord[j] === guess) {
+            if (randomWord[j] === guess && answerArray[j] === "_") { // исправили ошибку чтобы remaining не уменьшался answerArray[j] === "_"
                 answerArray[j] = guess;
                 remainingLetters--;
             }

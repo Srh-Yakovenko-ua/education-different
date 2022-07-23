@@ -27,7 +27,7 @@ while (remainingLetters > 0) {
     // отображение состояния игры
     alert(answerArray.join(' '));
     // обработка введенного ответа
-    let guess = prompt('Угадайте букву или нажмите ОТМЕНА для выхода из игры.');
+    let guess = prompt('Угадайте букву или нажмите ОТМЕНА для выхода из игры.').toLocaleLowerCase();
     if (guess === null) {
         alert('Вы закрыли игру');
         break;

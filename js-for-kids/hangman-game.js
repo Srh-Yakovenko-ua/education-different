@@ -21,16 +21,16 @@ for (let i = 0; i < randomWord.length; i++) {
 }
 let remainingLetters = randomWord.length;
 
-//делаем игровой цикл
-// Добавлвяю количество попыток
-let amountAttempts = 8;
 
+// Добавлвяю количество попыток
+let amountAttempts = 15;
+//делаем игровой цикл
 while (remainingLetters > 0 && amountAttempts > 0) {
     // отображение состояния игры
     alert(answerArray.join(' '));
     // обработка введенного ответа
     let guess = prompt('Угадайте букву или нажмите ОТМЕНА для выхода из игры.');
-    guess = guess.toLocaleLowerCase();  // фикс в нижний регистр
+    guess = guess.toLowerCase();  // фикс в нижний регистр
 
     if (guess === null) {
         alert('Вы закрыли игру');

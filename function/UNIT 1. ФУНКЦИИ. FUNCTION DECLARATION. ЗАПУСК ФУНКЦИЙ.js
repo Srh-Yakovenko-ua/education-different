@@ -1,4 +1,4 @@
-// функции
+
 // function declaration
 // hello()
 // function testFunction() {
@@ -11,7 +11,7 @@
 //     testFunction();
 //     console.log('hello');
 // }
-//
+
 // function testFunction2() {
 //     function t3() {
 //         console.log('t-3-function');
@@ -294,7 +294,7 @@
 
 // Task 10
 // Напишите функцию, которая перебирает массив ar10 и в ar10_res записывает только числа из ar10. В конце функции t10 для вывода массива запустите функцию showArr.
-
+//
 // const out10 = document.querySelector('.out-1');
 // let ar10 = [1, 2, 3, '4', '22', 8];
 // let ar10_res = [];
@@ -319,8 +319,8 @@
 //     })
 //     showArr()
 //     ar10_res = []; // очищаем
-//
-//
-// }
+
+
+//}
 //
 // document.querySelector('.btn').addEventListener('click', t10);

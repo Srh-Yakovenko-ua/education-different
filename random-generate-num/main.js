@@ -25,8 +25,8 @@ function game(max, min, attemptsNumber, randomNumber, playerName) {
     У тебя есть ${attemptsNumber} попыток.
     Погнали?!
     `);
-    let answerCount = [];
 
+    let answerCount = [];
     for (let i = 1; i <= attemptsNumber; i++) {
         const playerAnswer = prompt('Какое число я загадал?', '');
         if (playerAnswer > randomNumber) {

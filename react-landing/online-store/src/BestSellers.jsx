@@ -38,7 +38,7 @@ import {useState} from "react";
 export const BestSellers = () => {
     const [products, setProducts] = useState([])
 
-    useEffect(() => {
+     useEffect(() => {
         axios
             .get("https://masterclass.kimitsu.it-incubator.ru/api/products")
             .then((res) => {

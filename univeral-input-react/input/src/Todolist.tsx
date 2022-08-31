@@ -45,6 +45,7 @@ export function Todolist(props: PropsType) {
     const removeTaskHandler = (taskID: string) => {
         props.removeTask(taskID, props.id)
     }
+
     const tsarFoo = (value: FilterValuesType) => {
         props.changeFilter(value, props.id)
     }
@@ -87,14 +88,17 @@ export function Todolist(props: PropsType) {
             }
         </ul>
         <div>
-            <button className={props.filter === 'all' ? 'active-filter' : ''} onClick={() => tsarFoo('all')}>All
-            </button>
-            <button className={props.filter === 'active' ? 'active-filter' : ''}
-                    onClick={() => tsarFoo('active')}>Active
-            </button>
-            <button className={props.filter === 'completed' ? 'active-filter' : ''}
-                    onClick={() => tsarFoo('completed')}>Completed
-            </button>
+           <Button name={'all'} callBack={() => tsarFoo('all')}/>
+           <Button name={'active'} callBack={() => tsarFoo('active')}/>
+           <Button name={'completed'} callBack={() => tsarFoo('completed')}/>
+            {/*<button className={props.filter === 'all' ? 'active-filter' : ''} onClick={() => tsarFoo('all')}>All*/}
+            {/*</button>*/}
+            {/*<button className={props.filter === 'active' ? 'active-filter' : ''}*/}
+            {/*        onClick={() => tsarFoo('active')}>Active*/}
+            {/*</button>*/}
+            {/*<button className={props.filter === 'completed' ? 'active-filter' : ''}*/}
+            {/*        onClick={() => tsarFoo('completed')}>Completed*/}
+            {/*</button>*/}
         </div>
         <p></p>
         {

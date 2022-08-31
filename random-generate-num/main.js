@@ -35,7 +35,7 @@ function game(max, min, attemptsNumber, randomNumber, playerName) {
         } else if (playerAnswer < randomNumber) {
             alert(`Мое число больше, у тебя осталось ${attemptsNumber - i} попыток`);
             answerCount.push(playerAnswer);
-        }else{
+        } else {
             alert('Поздравляю, ты разгадал мою загадку');
             return
         }
@@ -47,4 +47,6 @@ function game(max, min, attemptsNumber, randomNumber, playerName) {
     `);
 }
 
-game(SETTINGS.MAX,SETTINGS.MIN, SETTINGS.ATTEMPTS_NUMBER,RANDOM_NUMBER,PLAYER_NAME);
+game(SETTINGS.MAX, SETTINGS.MIN, SETTINGS.ATTEMPTS_NUMBER, RANDOM_NUMBER, PLAYER_NAME);
+
+

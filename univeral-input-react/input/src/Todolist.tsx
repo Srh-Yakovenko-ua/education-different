@@ -1,12 +1,13 @@
 import React, {ChangeEvent, useState, KeyboardEvent} from 'react';
 import {FilterValuesType, TasksType} from './App';
+import {Button} from './components/Button';
 
 
-// export type TaskType = {
-//     id: string
-//     title: string
-//     isDone: boolean
-// }
+export type TaskType = {
+    id: string
+    title: string
+    isDone: boolean
+}
 
 type PropsType = {
     id: number
@@ -22,7 +23,7 @@ type PropsType = {
 }
 
 export function Todolist(props: PropsType) {
-    let [title, setTitle] = useState("")
+    let [title, setTitle] = useState('')
     let [error, setError] = useState<string | null>(null)
 
     const onChangeHandler = (e: ChangeEvent<HTMLInputElement>) => {
@@ -31,26 +32,37 @@ export function Todolist(props: PropsType) {
     const onKeyPressHandler = (e: KeyboardEvent<HTMLInputElement>) => {
         setError(null);
         if (e.charCode === 13) {
-           // addTask();
+            // addTask();
         }
     }
 
+    const removeTodolistHandler = () => {
+        props.removeTodolist(props.id)
+    }
+    const addTaskHandler = () => {
+        props.addTask(title, props.id)
+    }
+    const removeTaskHandler = (taskID: string) => {
+        props.removeTask(taskID, props.id)
+    }
+    const tsarFoo = (value: FilterValuesType) => {
+        props.changeFilter(value, props.id)
+    }
 
     return <div>
         <h3> {props.title}
-            <button onClick={() => {
-                'removeTodolist'
-            }}>x
-            </button>
+            {/*<button onClick={() => {'removeTodolist'}}>x</button>*/}
+            <Button name={'x'} callBack={removeTodolistHandler}/>
 
         </h3>
         <div>
             <input value={title}
                    onChange={onChangeHandler}
                    onKeyPress={onKeyPressHandler}
-                   className={error ? "error" : ""}
+                   className={error ? 'error' : ''}
             />
-            <button onClick={() => {'addTask'}}>+</button>
+            {/*<button onClick={() => {'addTask'}}>+</button>*/}
+            <Button name={'+'} callBack={addTaskHandler}/>
             {error && <div className="error-message">{error}</div>}
         </div>
         <ul>
@@ -61,23 +73,27 @@ export function Todolist(props: PropsType) {
                         props.changeTaskStatus(t.taskId, newIsDoneValue, props.id);
                     }
 
-                    return <li key={t.taskId} className={t.isDone ? "is-done" : ""}>
+                    // const removeTaskHandler = () => {
+                    //     props.removeTask(t.taskId, props.id)
+                    // }
+
+                    return <li key={t.taskId} className={t.isDone ? 'is-done' : ''}>
                         <input type="checkbox" onChange={onChangeHandler} checked={t.isDone}/>
                         <span>{t.title}</span>
-                        <button onClick={() => {'removeTask'}}>x</button>
+                        {/*<button onClick={() => {'removeTask'}}>x</button>*/}
+                        <Button name={'x'} callBack={() => removeTaskHandler(t.taskId)}/>
                     </li>
                 })
             }
         </ul>
         <div>
-            <button className={props.filter === 'all' ? "active-filter" : ""}
-                    onClick={()=>{}}>All
+            <button className={props.filter === 'all' ? 'active-filter' : ''} onClick={() => tsarFoo('all')}>All
             </button>
-            <button className={props.filter === 'active' ? "active-filter" : ""}
-                    onClick={()=>{}}>Active
+            <button className={props.filter === 'active' ? 'active-filter' : ''}
+                    onClick={() => tsarFoo('active')}>Active
             </button>
-            <button className={props.filter === 'completed' ? "active-filter" : ""}
-                    onClick={()=>{}}>Completed
+            <button className={props.filter === 'completed' ? 'active-filter' : ''}
+                    onClick={() => tsarFoo('completed')}>Completed
             </button>
         </div>
         <p></p>

@@ -32,7 +32,7 @@ export function Todolist(props: PropsType) {
     const onKeyPressHandler = (e: KeyboardEvent<HTMLInputElement>) => {
         setError(null);
         if (e.charCode === 13) {
-            // addTask();
+            addTaskHandler();
         }
     }
 
@@ -67,21 +67,16 @@ export function Todolist(props: PropsType) {
             {error && <div className="error-message">{error}</div>}
         </div>
         <ul>
-            {
-                props.tasks.map(t => {
+            {props.tasks
+                .map(t => {
                     const onChangeHandler = (e: ChangeEvent<HTMLInputElement>) => {
                         let newIsDoneValue = e.currentTarget.checked;
                         props.changeTaskStatus(t.taskId, newIsDoneValue, props.id);
                     }
 
-                    // const removeTaskHandler = () => {
-                    //     props.removeTask(t.taskId, props.id)
-                    // }
-
                     return <li key={t.taskId} className={t.isDone ? 'is-done' : ''}>
                         <input type="checkbox" onChange={onChangeHandler} checked={t.isDone}/>
                         <span>{t.title}</span>
-                        {/*<button onClick={() => {'removeTask'}}>x</button>*/}
                         <Button name={'x'} callBack={() => removeTaskHandler(t.taskId)}/>
                     </li>
                 })
@@ -91,14 +86,6 @@ export function Todolist(props: PropsType) {
            <Button name={'all'} callBack={() => tsarFoo('all')}/>
            <Button name={'active'} callBack={() => tsarFoo('active')}/>
            <Button name={'completed'} callBack={() => tsarFoo('completed')}/>
-            {/*<button className={props.filter === 'all' ? 'active-filter' : ''} onClick={() => tsarFoo('all')}>All*/}
-            {/*</button>*/}
-            {/*<button className={props.filter === 'active' ? 'active-filter' : ''}*/}
-            {/*        onClick={() => tsarFoo('active')}>Active*/}
-            {/*</button>*/}
-            {/*<button className={props.filter === 'completed' ? 'active-filter' : ''}*/}
-            {/*        onClick={() => tsarFoo('completed')}>Completed*/}
-            {/*</button>*/}
         </div>
         <p></p>
         {

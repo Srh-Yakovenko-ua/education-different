@@ -12,6 +12,7 @@ type dataType = {
 function App() {
     const [data, setData] = useState<Array<dataType>>([]);
     console.log(data)
+
     const getMeData = () => {
        setData([])
     }

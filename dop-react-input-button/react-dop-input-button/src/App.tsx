@@ -16,7 +16,7 @@ function App() {
     const getMeData = () => {
        setData([])
     }
-
+    console.log(data)
     useEffect(()=>{ fetch('https://jsonplaceholder.typicode.com/posts')
         .then(response => response.json())
         .then(json => setData(json))},[])

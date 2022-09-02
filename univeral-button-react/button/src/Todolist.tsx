@@ -39,9 +39,11 @@ export function Todolist(props: PropsType) {
     const removeTodolistHandler = () => {
         props.removeTodolist(props.id)
     }
+
     const addTaskHandler = () => {
         props.addTask(title, props.id)
     }
+
     const removeTaskHandler = (taskID: string) => {
         props.removeTask(taskID, props.id)
     }
@@ -52,7 +54,6 @@ export function Todolist(props: PropsType) {
 
     return <div>
         <h3> {props.title}
-            {/*<button onClick={() => {'removeTodolist'}}>x</button>*/}
             <Button name={'x'} callBack={removeTodolistHandler}/>
 
         </h3>
@@ -62,7 +63,6 @@ export function Todolist(props: PropsType) {
                    onKeyPress={onKeyPressHandler}
                    className={error ? 'error' : ''}
             />
-            {/*<button onClick={() => {'addTask'}}>+</button>*/}
             <Button name={'+'} callBack={addTaskHandler}/>
             {error && <div className="error-message">{error}</div>}
         </div>

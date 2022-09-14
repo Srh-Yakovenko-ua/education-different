@@ -47,8 +47,8 @@ function App() {
         setTasks({...tasks, [todolistId]: [...tasks[todolistId], newTask]})
     }
 
-    function changeStatus(taskId: string, isDone: boolean) {
-
+    function changeStatus(todolistId: string,taskId: string, isDone: boolean) {
+setTasks({...tasks,[todolistId] : tasks[todolistId].map(el=> el.id === taskId ? {...el,isDone : isDone} : el)})
     }
 
 

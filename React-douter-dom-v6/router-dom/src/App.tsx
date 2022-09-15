@@ -71,6 +71,21 @@ function App() {
             {/*</Routes>*/}
             {/* ----------- useParams ------------  */}
 
+         {/*------------ link NavLink -------------*/}
+            <NavLink to={'/'} >main</NavLink>
+            <NavLink to={'/profile'} style={(params)=>{ return {color : params.isActive?'lime' : 'orange'}}}>Profile</NavLink>
+            <NavLink to={'/login'} className={({isActive})=>isActive ? 'def' : 'act'}>Login</NavLink>
+            <NavLink to={'/profile/settings'}>settings</NavLink>
+
+
+            <Routes>
+                <Route path={'/'} element={<div>main</div>}></Route>
+                <Route path={'/*'} element={<div>404</div>}></Route>
+                <Route path={'/login'} element={<div>Login</div>}></Route>
+                <Route path={'/profile'} element={<div>profile</div>}></Route>
+                <Route path={'/profile/settings'} element={<div>settings</div>}></Route>
+            </Routes>
+
         </div>
     );
 }

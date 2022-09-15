@@ -1,3 +1,10 @@
 .App a {
   margin-left: 10px;
 }
+
+.def {
+  background: aquamarine;
+}
+.act {
+  background: blueviolet;
+}

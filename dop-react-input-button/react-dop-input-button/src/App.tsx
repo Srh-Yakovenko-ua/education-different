@@ -11,12 +11,12 @@ type dataType = {
 
 function App() {
     const [data, setData] = useState<Array<dataType>>([]);
-    console.log(data)
+
 
     const getMeData = () => {
        setData([])
     }
-    console.log(data)
+
     useEffect(()=>{ fetch('https://jsonplaceholder.typicode.com/posts')
         .then(response => response.json())
         .then(json => setData(json))},[])

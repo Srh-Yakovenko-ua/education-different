@@ -1,18 +1,21 @@
 import React, {useEffect} from 'react';
 import './App.css';
-import {Navigate, NavLink, Route, Routes, useNavigate, useParams} from 'react-router-dom';
+import {Navigate, NavLink, Route, Routes, useNavigate, useParams, useSearchParams} from 'react-router-dom';
 
 function App() {
-    {/* ----------- useParams ------------  */}
+    {/* ----------- useParams ------------  */
+    }
     // const Profile = () => {
     //     const some = useParams()
     //
     //     console.log(some)
     //     return <div>profile</div>
     // }
-    {/* ----------- useParams ------------  */}
+    {/* ----------- useParams ------------  */
+    }
 
-    {/*---------------------UseNavigation ----------------*/}
+    {/*---------------------UseNavigation ----------------*/
+    }
     // const Profile  = () => {
     //     const navigate = useNavigate();
     //
@@ -25,9 +28,34 @@ function App() {
     //         </div>
     //     )
     // }
-    {/*---------------------UseNavigation ----------------*/}
+    {/*---------------------UseNavigation ----------------*/
+    }
 
 
+    {/*-------------------------UseSearchParams - query - -------------------------*/
+    }
+    const Profile = () => {
+        const [searchParams, setSearchParams] = useSearchParams()
+
+        console.log(searchParams.get('name'))
+        console.log(Object.fromEntries(searchParams))
+        useEffect(() => {
+            console.log('research...')
+        }, [searchParams])
+
+        return (
+            <div>
+                profile
+                <button onClick={() => {
+                    setSearchParams({...Object.fromEntries(searchParams),age: '32'})
+                }}>logout</button>
+
+                add age
+            </div>
+        )
+    }
+    {/*-------------------------UseSearchParams - query - -------------------------*/
+    }
 
     return (
         <div className="App">
@@ -86,50 +114,52 @@ function App() {
             {/*</Routes>*/}
             {/* ----------- useParams ------------  */}
 
-         {/*------------ link NavLink -------------*/}
-         {/*   <NavLink to={'/'} >main</NavLink>*/}
-         {/*   <NavLink to={'/profile'} style={(params)=>{ return {color : params.isActive?'lime' : 'orange'}}}>Profile</NavLink>*/}
-         {/*   <NavLink to={'/login'} className={({isActive})=>isActive ? 'def' : 'act'}>Login</NavLink>*/}
-         {/*   <NavLink to={'/profile/settings'}>settings</NavLink>*/}
+            {/*------------ link NavLink -------------*/}
+            {/*   <NavLink to={'/'} >main</NavLink>*/}
+            {/*   <NavLink to={'/profile'} style={(params)=>{ return {color : params.isActive?'lime' : 'orange'}}}>Profile</NavLink>*/}
+            {/*   <NavLink to={'/login'} className={({isActive})=>isActive ? 'def' : 'act'}>Login</NavLink>*/}
+            {/*   <NavLink to={'/profile/settings'}>settings</NavLink>*/}
 
 
-         {/*   <Routes>*/}
-         {/*       <Route path={'/'} element={<div>main</div>}></Route>*/}
-         {/*       <Route path={'/*'} element={<div>404</div>}></Route>*/}
-         {/*       <Route path={'/login'} element={<div>Login</div>}></Route>*/}
-         {/*       <Route path={'/profile'} element={<div>profile</div>}></Route>*/}
-         {/*       <Route path={'/profile/settings'} element={<div>settings</div>}></Route>*/}
-         {/*   </Routes>*/}
+            {/*   <Routes>*/}
+            {/*       <Route path={'/'} element={<div>main</div>}></Route>*/}
+            {/*       <Route path={'/*'} element={<div>404</div>}></Route>*/}
+            {/*       <Route path={'/login'} element={<div>Login</div>}></Route>*/}
+            {/*       <Route path={'/profile'} element={<div>profile</div>}></Route>*/}
+            {/*       <Route path={'/profile/settings'} element={<div>settings</div>}></Route>*/}
+            {/*   </Routes>*/}
             {/*------------ link NavLink -------------*/}
 
-        {/*---------------------UseNavigation ----------------*/}
-        {/*    <NavLink to={'/'}>main</NavLink>*/}
-        {/*    <NavLink to={'/login'}>login</NavLink>*/}
-        {/*    <NavLink to={'/profile'}>profile</NavLink>*/}
-        {/*    <NavLink to={'/profile/settings'}>settings</NavLink>*/}
+            {/*---------------------UseNavigation ----------------*/}
+            {/*    <NavLink to={'/'}>main</NavLink>*/}
+            {/*    <NavLink to={'/login'}>login</NavLink>*/}
+            {/*    <NavLink to={'/profile'}>profile</NavLink>*/}
+            {/*    <NavLink to={'/profile/settings'}>settings</NavLink>*/}
 
-        {/*    <Routes>*/}
-        {/*        <Route path={'/*'} element={<div>404</div>}></Route>*/}
-        {/*        <Route path={'/'} element={<div>main</div>}></Route>*/}
-        {/*        <Route path={'/login'} element={<div>login</div>}></Route>*/}
-        {/*        <Route path={'/profile'} element={<Profile/>}></Route>*/}
-        {/*        <Route path={'/profile/settings'} element={<div>settings</div>}></Route>*/}
-        {/*    </Routes>*/}
+            {/*    <Routes>*/}
+            {/*        <Route path={'/*'} element={<div>404</div>}></Route>*/}
+            {/*        <Route path={'/'} element={<div>main</div>}></Route>*/}
+            {/*        <Route path={'/login'} element={<div>login</div>}></Route>*/}
+            {/*        <Route path={'/profile'} element={<Profile/>}></Route>*/}
+            {/*        <Route path={'/profile/settings'} element={<div>settings</div>}></Route>*/}
+            {/*    </Routes>*/}
             {/*---------------------UseNavigation ----------------*/}
 
-            {/*<NavLink to={'/'}>main</NavLink>*/}
-            {/*<NavLink to={'/login'}>login</NavLink>*/}
-            {/*<NavLink to={'/profile'}>profile</NavLink>*/}
-            {/*<NavLink to={'/profile/settings'}>settings</NavLink>*/}
 
-            {/*<Routes>*/}
-            {/*    <Route path={'/*'} element={<div>404</div>}></Route>*/}
-            {/*    <Route path={'/'} element={<div>main</div>}></Route>*/}
-            {/*    <Route path={'/login'} element={<div>login</div>}></Route>*/}
-            {/*    <Route path={'/profile'} element={<Profile/>}></Route>*/}
-            {/*    <Route path={'/profile/settings'} element={<div>settings</div>}></Route>*/}
-            {/*</Routes>*/}
+            {/*-------------------------UseSearchParams - query - -------------------------*/}
+            <NavLink to={'/'}>main</NavLink>
+            <NavLink to={'/login'}>login</NavLink>
+            <NavLink to={'/profile'}>profile</NavLink>
+            <NavLink to={'/profile/settings'}>settings</NavLink>
 
+            <Routes>
+                <Route path={'/*'} element={<div>404</div>}></Route>
+                <Route path={'/'} element={<div>main</div>}></Route>
+                <Route path={'/login'} element={<div>login</div>}></Route>
+                <Route path={'/profile'} element={<Profile/>}></Route>
+                <Route path={'/profile/settings'} element={<div>settings</div>}></Route>
+            </Routes>
+            {/*-------------------------UseSearchParams - query - -------------------------*/}
         </div>
     );
 }

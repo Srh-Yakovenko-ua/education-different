@@ -6,6 +6,9 @@ import AboutPage from './Components/Aboutpage';
 import Blogpage from './Components/Blogpage';
 import Notfoundpage from './Components/Notfoundpage';
 import Layout from './Layout/Layout';
+import SinglePage from './Components/SinglePage';
+import Createpost from './Components/Createpost';
+import Editpost from './Components/Editpost';
 
 // import {Navigate, NavLink, Route, Routes, useNavigate, useParams, useSearchParams} from 'react-router-dom';
 
@@ -173,9 +176,12 @@ function App() {
             <Routes>
                 <Route path={'/'} element={<Layout/>}>
                     <Route index element={<Homepage/>}></Route>
-                    <Route path={'/about'} element={<AboutPage/>}></Route>
-                    <Route path={'/posts'} element={<Blogpage/>}></Route>
-                    <Route path={'/*'} element={<Notfoundpage/>}></Route>
+                    <Route path={'about'} element={<AboutPage/>}></Route>
+                    <Route path={'posts'} element={<Blogpage/>}></Route>
+                    <Route path={'posts/:id'} element={<SinglePage/>}></Route>
+                    <Route path={'posts/:id/edit'} element={<Editpost/>}></Route>
+                    <Route path={'posts/new'} element={<Createpost/>}></Route>
+                    <Route path={'*'} element={<Notfoundpage/>}></Route>
                 </Route>
             </Routes>
 

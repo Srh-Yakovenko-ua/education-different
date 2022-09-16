@@ -1,6 +1,6 @@
 import React from 'react';
 import './App.css';
-import {Link, Route, Routes} from 'react-router-dom';
+import {Link, Navigate, Route, Routes} from 'react-router-dom';
 import Homepage from './Components/Homepage';
 import AboutPage from './Components/Aboutpage';
 import Blogpage from './Components/Blogpage';
@@ -177,6 +177,7 @@ function App() {
                 <Route path={'/'} element={<Layout/>}>
                     <Route index element={<Homepage/>}></Route>
                     <Route path={'about'} element={<AboutPage/>}></Route>
+                    <Route path={'about-us'} element={<Navigate to={'/about'} replace/>}></Route>
                     <Route path={'posts'} element={<Blogpage/>}></Route>
                     <Route path={'posts/:id'} element={<SinglePage/>}></Route>
                     <Route path={'posts/:id/edit'} element={<Editpost/>}></Route>

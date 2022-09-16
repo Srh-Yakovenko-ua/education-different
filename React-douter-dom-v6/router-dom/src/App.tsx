@@ -9,6 +9,9 @@ import Layout from './Layout/Layout';
 import SinglePage from './Components/SinglePage';
 import Createpost from './Components/Createpost';
 import Editpost from './Components/Editpost';
+import Loginpage from './Components/Loginpage';
+import RequireAuth from './hoc/RequireAuth';
+import {AuthProvider} from './hoc/AuthProvider';
 
 // import {Navigate, NavLink, Route, Routes, useNavigate, useParams, useSearchParams} from 'react-router-dom';
 
@@ -172,19 +175,25 @@ function App() {
             {/*-------------------------UseSearchParams - query - -------------------------*/}
 
 
-
-            <Routes>
-                <Route path={'/'} element={<Layout/>}>
-                    <Route index element={<Homepage/>}></Route>
-                    <Route path={'about'} element={<AboutPage/>}></Route>
-                    <Route path={'about-us'} element={<Navigate to={'/about'} replace/>}></Route>
-                    <Route path={'posts'} element={<Blogpage/>}></Route>
-                    <Route path={'posts/:id'} element={<SinglePage/>}></Route>
-                    <Route path={'posts/:id/edit'} element={<Editpost/>}></Route>
-                    <Route path={'posts/new'} element={<Createpost/>}></Route>
-                    <Route path={'*'} element={<Notfoundpage/>}></Route>
-                </Route>
-            </Routes>
+            <AuthProvider>
+                <Routes>
+                    <Route path={'/'} element={<Layout/>}>
+                        <Route index element={<Homepage/>}></Route>
+                        <Route path={'about'} element={<AboutPage/>}></Route>
+                        <Route path={'about-us'} element={<Navigate to={'/about'} replace/>}></Route>
+                        <Route path={'posts'} element={<Blogpage/>}></Route>
+                        <Route path={'posts/:id'} element={<SinglePage/>}></Route>
+                        <Route path={'posts/:id/edit'} element={<Editpost/>}></Route>
+                        <Route path={'posts/new'} element={
+                            <RequireAuth>
+                                <Createpost/>
+                            </RequireAuth>}>
+                        </Route>
+                        <Route path={'login'} element={<Loginpage/>}></Route>
+                        <Route path={'*'} element={<Notfoundpage/>}></Route>
+                    </Route>
+                </Routes>
+            </AuthProvider>
 
 
         </div>

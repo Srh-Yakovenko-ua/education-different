@@ -144,7 +144,8 @@ function App() {
     }
 
     function addTask(title: string, todolistId: number) {
-
+        let task = {taskId: v1(), title: title, isDone: false};
+        setTodo(todo.map((el, index) => index === todolistId ? {...el, tasks: [...el.tasks, task]} : el))
     }
 
     function changeStatus(id: string, isDone: boolean, todolistId: number) {
@@ -155,6 +156,7 @@ function App() {
     }
 
     function changeFilter(value: FilterValuesType, todolistId: number) {
+
         setTodo(todo.map((el, index) => index === todolistId ? {...el, filter: value} : el))
     }
 

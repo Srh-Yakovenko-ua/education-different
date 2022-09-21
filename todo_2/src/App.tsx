@@ -148,7 +148,10 @@ function App() {
     }
 
     function changeStatus(id: string, isDone: boolean, todolistId: number) {
-
+        setTodo(todo.map((el, index) => index === todolistId ? {
+            ...el,
+            tasks: el.tasks.map(el => el.taskId === id ? {...el, isDone: isDone} : el)
+        } : el))
     }
 
     function changeFilter(value: FilterValuesType, todolistId: number) {

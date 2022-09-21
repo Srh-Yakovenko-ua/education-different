@@ -1,6 +1,6 @@
 import React, {useState} from 'react';
 import './App.css';
-import {TaskType, Todolist} from './Todolist';
+import { Todolist} from './Todolist';
 import {v1} from 'uuid';
 
 type ObjectType = {
@@ -140,7 +140,10 @@ function App() {
 
 
     function removeTask(taskId: string, todolistId: number) {
-
+        setTodo(todo.map((el, index) => index === todolistId ? {
+            ...el,
+            tasks: el.tasks.filter(el => el.taskId !== taskId)
+        } : el))
     }
 
     function addTask(title: string, todolistId: number) {

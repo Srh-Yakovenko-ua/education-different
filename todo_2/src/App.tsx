@@ -152,7 +152,7 @@ function App() {
     }
 
     function changeFilter(value: FilterValuesType, todolistId: number) {
-
+        setTodo(todo.map((el, index) => index === todolistId ? {...el, filter: value} : el))
     }
 
     function removeTodolist(id: number) {
